@@ -1,4 +1,3 @@
-
 let collapsible;
 let menu;
 let buttons;
@@ -10,7 +9,7 @@ let timer = null;
 
 function init () {
     console.log('init')
-    collapsible = document.getElementsByClassName("coll");
+    collapsible = document.getElementsByClassName('coll');
     menu = document.getElementById('remove');
     buttons = document.querySelectorAll('.coll');
     section = document.getElementById('parts').getElementsByClassName('coll');
@@ -20,7 +19,6 @@ function init () {
     //Function for collapsing the sections
     for(let i = 0; i < collapsible.length; i++) {
         collapsible[i].addEventListener("click", function() {
-            this.classList.toggle("current");
             let content = this.nextElementSibling;
             if(content.style.display === "none") {
                 content.style.display = "block";
