@@ -7,6 +7,7 @@ let menuLink;
 let timer = null;
 
 
+
 function init () {
     console.log('init')
     collapsible = document.getElementsByClassName('coll');
