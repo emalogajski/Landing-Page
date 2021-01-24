@@ -43,7 +43,23 @@ function init () {
     }, false);
 
 }
+
 window.onload = init;
+
+
+//Function for showing the menu on hovering over hamburger menu as well
+hamburgerMenu = document.getElementById("menuIcon");
+
+hamburgerMenu.addEventListener('mouseover', function() {
+    if(timer !== null) {
+        clearTimeout(timer);
+        menu.classList.remove("hidden");
+    }
+
+    timer = setTimeout(function() {
+        menu.classList.add("hidden");
+    }, 2000);
+}, false);
 
 
 //Function for the "to top" button and for adding the active state to the href attributes in the list items of the unordered list
