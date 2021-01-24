@@ -16,7 +16,7 @@ body {
 header {
     display: flex;
     flex: 1;
-    height: 15vh;
+    padding: 22px;
     justify-content: center;
     align-items: center;
     z-index: 0;
@@ -131,7 +131,7 @@ li a {
 }
 
 a:visited {
-    color: rgb(58, 55, 55);
+    color: rgba(98, 188, 240, 0.39);
 }
 
 li:hover {
@@ -148,7 +148,7 @@ li:hover {
     display: block;
     text-decoration: none;
     cursor: pointer;
-    background-color: rgb(135, 156, 212);
+    background-color: rgb(60, 61, 63);
     border-style: none;
     border-radius: 50%;
     font-size: 15px;
