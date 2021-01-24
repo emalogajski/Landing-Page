@@ -1,18 +1,13 @@
 let collapsible;
 let menu;
-let buttons;
-let section; 
 let sectionBig;
 let menuLink;
 let timer = null;
 
 
 function init () {
-    console.log('init')
     collapsible = document.getElementsByClassName('coll');
     menu = document.getElementById('remove');
-    buttons = document.querySelectorAll('.coll');
-    section = document.getElementById('parts').getElementsByClassName('coll');
     sectionBig = document.getElementsByClassName('part');
     
 
@@ -22,8 +17,10 @@ function init () {
             let content = this.nextElementSibling;
             if(content.style.display === "none") {
                 content.style.display = "block";
+                this.classList.add("sectiontitleonclick");
             } else {
                 content.style.display = "none";
+                this.classList.remove("sectiontitleonclick");
             }
         })
     }
@@ -51,11 +48,11 @@ window.onload = init;
 //Function for the "to top" button and for adding the active state to the href attributes in the list items of the unordered list
 const onScroll = function () {
 
-    for(let i = 0; i < section.length; i++) {
+    for(let i = 0; i < collapsible.length; i++) {
         currMenuLink = menuLink[i];
-        sectionTitle = section[i];
-        sectionBigg = sectionBig[i];
-        const position = sectionBigg.getBoundingClientRect();
+        sectionTitle = collapsible[i];
+        sectionWhole = sectionBig[i];
+        const position = sectionWhole.getBoundingClientRect();
 
         if(position.top <= 0 && position.bottom >= 0) {
             currMenuLink.classList.add('active');
@@ -70,8 +67,8 @@ const onScroll = function () {
 
 //Function for adding the list items
 
-function scrollToSection (section) {
-    section.scrollIntoView();
+function scrollToSection (collapsible) {
+    collapsible.scrollIntoView();
 }
 
 function clickMenu(event) {
@@ -79,11 +76,11 @@ function clickMenu(event) {
 }
 
 function initializeMenu() {
-    for (let i = 0; i < buttons.length; i++) {
+    for (let i = 0; i < collapsible.length; i++) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         const current = document.getElementById('remove');
-        const innerText = buttons[i].innerHTML;
+        const innerText = collapsible[i].innerHTML;
         const stepOne = current.appendChild(li);
         const stepTwo = stepOne.appendChild(a);
         stepTwo.innerHTML = innerText;
