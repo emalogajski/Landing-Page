@@ -1,0 +1,60 @@
+@import './sections.css';
+@import './menuandtotopbutton.css'
+
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.container {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    flex: 1;
+    padding: 22px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.hamburgerMenu {
+    position: fixed;
+    right: 1vw;
+    top: 1vh;
+    z-index: 1;
+}
+
+img {
+    height: 7vh;
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 10px 50px 20px 50px;
+    margin: 0;
+    border-bottom: solid black;
+    background-color: rgba(98, 188, 240, 0.39);
+}
+
+p {
+    margin: 0;
+    text-align: justify;
+}

@@ -1,0 +1,44 @@
+.sections {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    position: relative;
+}
+
+.sectiontitleonclick {
+    background-color: rgba(16, 112, 236, 0.486);
+    font-size: 26px;
+}
+
+.section {
+    padding: 20px 50px;
+    height: auto;
+    border: solid black;
+    background-color: rgba(98, 188, 240, 0.39);
+    overflow: hidden;
+    display: block;
+    font-size: 16px;
+}
+
+.part {
+    position: relative;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(75, 109, 204);
+    height: 60px;
+    width: 100%;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+button:hover {
+    background-color: rgba(16, 112, 236, 0.486);
+    font-size: 26px;
+}
