@@ -108,3 +108,25 @@ function initializeMenu() {
     };
 }
 
+
+
+if(matchMedia) {
+    const mediaQueryOne = window.matchMedia('(max-width: 425px)');
+    mediaQueryOne.addEventListener('scroll', removeMenuAppear, false);
+    removeMenuAppear(mediaQueryOne);
+}
+
+function removeMenuAppear(x) {
+    if(x.matches) {
+        window.removeEventListener('scroll', function() {
+            if(timer !== null) {
+                clearTimeout(timer);
+                menu.classList.remove("hidden");
+            }
+    
+            timer = setTimeout(function() {
+                menu.classList.add("hidden");
+            }, 2000);
+        });
+    }
+}
