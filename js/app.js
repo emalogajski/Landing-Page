@@ -7,9 +7,9 @@ let timer = null;
 
 
 function init () {
-    collapsible = document.getElementsByClassName('coll');
+    collapsible = document.getElementsByTagName('button');
     menu = document.getElementById('remove');
-    sectionBig = document.getElementsByClassName('part');
+    sectionBig = document.getElementsByClassName('section');
     
 
     //Function for collapsing the sections
