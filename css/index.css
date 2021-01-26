@@ -33,7 +33,7 @@ h1 {
     margin: 0;
 }
 
-.hamburgerMenu {
+.hamburger-menu {
     position: fixed;
     right: 1vw;
     top: 1vh;

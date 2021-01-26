@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
   
-.allSections {
+.sections {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -14,14 +14,18 @@
     font-size: 26px;
 }
 
-div p {
+.text p {
+    display: block;
     padding: 20px 50px;
     height: auto;
     border: solid black;
     background-color: rgba(98, 188, 240, 0.39);
     overflow: hidden;
-    display: block;
     font-size: 16px;
+}
+
+.sectiontitleonclick p {
+    display: none;
 }
 
 .section {
