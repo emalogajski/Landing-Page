@@ -9,8 +9,8 @@
     position: relative;
 }
 
-.sectiontitleonclick {
-    background-color: rgba(16, 112, 236, 0.486);
+button.sectiontitleonclick {
+    background-color: rgb(75, 109, 204);
     font-size: 26px;
 }
 
@@ -24,7 +24,7 @@
     font-size: 16px;
 }
 
-.sectiontitleonclick p {
+.collapsetext {
     display: none;
 }
 
@@ -36,7 +36,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(75, 109, 204);
+    background-color:  rgba(16, 112, 236, 0.486);
     height: 60px;
     width: 100%;
     font-size: 22px;
@@ -47,6 +47,19 @@ button {
 }
 
 button:hover {
-    background-color: rgba(16, 112, 236, 0.486);
+    background-color: rgb(75, 109, 204);
     font-size: 26px;
+}
+
+@media only screen and (max-width: 425px) {
+    .text p {
+        padding: 20px 25px;
+    }
+
+}
+
+@media only screen and (min-width: 769px) {
+    .text p {
+        padding: 30px 400px;
+    }
 }
