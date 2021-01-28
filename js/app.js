@@ -2,8 +2,6 @@ let collapsibles;
 let menu;
 let sections;
 let menuLink;
-let text;
-let mediaQueryOne;
 let timer = null;
 
 function showHideMenu () {
@@ -15,7 +13,6 @@ function showHideMenu () {
     timer = setTimeout(function() {
         menu.classList.add('hidden');
     }, 2000);
-    console.log('Hello');
 };
 
 function init () {
@@ -69,7 +66,7 @@ const onScroll = function () {
     }   
 };
 
-//Function for adding the list items
+//Functions for adding the list items
 
 function scrollToSection (collapsibles) {
     collapsibles.scrollIntoView();
@@ -115,4 +112,3 @@ function mediaQueries () {
         window.listenerAdded === true;
     }
 }
-
