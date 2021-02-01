@@ -1,0 +1,86 @@
+@import './sections.css';
+@import './menuandtotopbutton.css';
+
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    flex: 1;
+    padding: 22px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: white;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.hamburger-menu {
+    position: fixed;
+    right: 1vw;
+    top: 1vh;
+    z-index: 1;
+}
+
+img {
+    height: 7vh;
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin: 0;
+    border-bottom: solid black;
+    background-color: rgba(98, 188, 240, 0.39);
+}
+
+p {
+    margin: 0;
+    text-align: justify;
+}
+
+@media only screen and (max-width: 1440px) {
+    .intro {
+        padding: 30px 400px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .intro {
+        padding: 20px 50px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    h1 {
+        font-size: 40px;
+    }
+    
+    .intro {
+        padding: 20px 25px;
+    }
+
+}

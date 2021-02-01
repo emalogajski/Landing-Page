@@ -1,98 +1,136 @@
-
-let collapsible;
+let collapsibles;
 let menu;
-let buttons;
-let section; 
-let sectionBig;
+let sections;
 let menuLink;
 let timer = null;
+let header;
+let sticky;
 
+function showHideMenu () {
+    if(timer !== null) {
+        clearTimeout(timer);
+        menu.classList.remove('hidden');
+    }
+
+    timer = setTimeout(function() {
+        menu.classList.add('hidden');
+    }, 2000);
+};
+
+    //Function for making header sticky
+function stickyHeader () {
+    header = document.getElementById('header');
+    sticky = header.offsetTop;
+    if(window.pageYOffset > sticky) {
+        header.classList.add('sticky');
+    } else {
+        header.classList.remove('sticky');
+    }
+}
 
 function init () {
-    console.log('init')
-    collapsible = document.getElementsByClassName("coll");
-    menu = document.getElementById('remove');
-    buttons = document.querySelectorAll('.coll');
-    section = document.getElementById('parts').getElementsByClassName('coll');
-    sectionBig = document.getElementsByClassName('part');
-    
+    collapsibles = document.getElementsByTagName('button');
+    menu = document.getElementsByClassName('menu')[0];
+    sections = document.getElementsByClassName('section');
 
     //Function for collapsing the sections
-    for(let i = 0; i < collapsible.length; i++) {
-        collapsible[i].addEventListener("click", function() {
-            this.classList.toggle("current");
-            let content = this.nextElementSibling;
-            if(content.style.display === "none") {
-                content.style.display = "block";
-            } else {
-                content.style.display = "none";
-            }
+    for(let i = 0; i < collapsibles.length; i++) {
+        collapsibles[i].addEventListener('click', function() {
+            this.classList.toggle('sectiontitleonclick');
+            this.nextElementSibling.classList.toggle('collapsetext');
         })
     }
 
     initializeMenu();
-    menuLink = document.querySelectorAll('#remove li');
+    menuLink = document.querySelectorAll('.menu li');
     window.addEventListener('scroll', onScroll); 
 
     //Function for showing and removing menu in reaction to user scrolling
-    window.addEventListener('scroll', function() {
-        if(timer !== null) {
-            clearTimeout(timer);
-            menu.classList.remove("hidden");
-        }
+    window.addEventListener('scroll', showHideMenu);
 
-        timer = setTimeout(function() {
-            menu.classList.add("hidden");
-        }, 2000);
-    }, false);
-
+    //Function for making header sticky
+    window.addEventListener('scroll', stickyHeader);
 }
+
 window.onload = init;
+window.listenerAdded === true;
+
+
+//Function for showing the menu on hovering over hamburger menu as well
+hamburgerMenu = document.getElementById('menu-icon');
+
+hamburgerMenu.addEventListener('mouseover', showHideMenu);
+
+
+//Function for showing the menu on hovering over hamburger menu as well
+hamburgerMenu = document.getElementById('menu-icon');
+
+hamburgerMenu.addEventListener('mouseover', showHideMenu);
 
 
 //Function for the "to top" button and for adding the active state to the href attributes in the list items of the unordered list
 const onScroll = function () {
 
-    for(let i = 0; i < section.length; i++) {
-        currMenuLink = menuLink[i];
-        sectionTitle = section[i];
-        sectionBigg = sectionBig[i];
-        const position = sectionBigg.getBoundingClientRect();
+    for(let i = 0; i < collapsibles.length; i++) {
+        currentMenuLink = menuLink[i];
+        sectionTitle = collapsibles[i];
+        sectionWhole = sections[i];
+        const position = sectionWhole.getBoundingClientRect();
 
         if(position.top <= 0 && position.bottom >= 0) {
-            currMenuLink.classList.add('active');
+            currentMenuLink.classList.add('active');
             sectionTitle.classList.add('active');
         } else {
-            currMenuLink.classList.remove('active');
+            currentMenuLink.classList.remove('active');
             sectionTitle.classList.remove('active');
         }
 
     }   
 };
 
-//Function for adding the list items
+//Functions for adding the list items
 
-function scrollToSection (section) {
-    section.scrollIntoView();
+function scrollToSection (collapsibles) {
+    collapsibles.scrollIntoView();
 }
 
 function clickMenu(event) {
     console.log(event);
 }
 
-function initializeMenu() {
-    for (let i = 0; i < buttons.length; i++) {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        const current = document.getElementById('remove');
-        const innerText = buttons[i].innerHTML;
-        const stepOne = current.appendChild(li);
-        const stepTwo = stepOne.appendChild(a);
-        stepTwo.innerHTML = innerText;
-        stepTwo.addEventListener('click', function (e) {
-            e.preventDefault();
-            collapsible[i].scrollIntoView({behavior: "smooth"});
-        });
-    };
+function createMenuItem(menuItemText){
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.innerHTML = menuItemText;
+    li.appendChild(a);
+    return li;
 }
 
+function addScrollToSectionClickListener(menuItem, collapsibleSection){
+    menuItem.querySelector('a').addEventListener('click', function (e) {
+        e.preventDefault();
+        collapsibleSection.scrollIntoView({behavior: 'smooth'});
+    });
+}
+
+function initializeMenu() {
+    for (let i = 0; i < collapsibles.length; i++) {
+        const collapsibleSection = collapsibles[i];
+        const collapsibleSectionName = collapsibleSection.innerHTML;
+        const menuItem = createMenuItem(collapsibleSectionName);
+        addScrollToSectionClickListener(menuItem, collapsibleSection)
+        menu.appendChild(menuItem);
+    }
+}
+
+window.addEventListener('resize', mediaQueries);
+
+function mediaQueries () {
+    if(window.innerWidth <= 425) {
+        window.removeEventListener('scroll', showHideMenu);
+        window.listenerAdded === false;
+    } else {
+        window.addEventListener('scroll', showHideMenu);
+        window.listenerAdded === true;
+    }
+}
