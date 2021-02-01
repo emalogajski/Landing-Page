@@ -10,10 +10,7 @@ body {
 }
 
 .container {
-<<<<<<< HEAD
     position: relative;
-=======
->>>>>>> 305e1c4bf10a19f934ba1a96b8910b68c8cf34eb
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -21,13 +18,8 @@ body {
 
 header {
     display: flex;
-<<<<<<< HEAD
-    /* position: sticky; */
-    /* top: 0; */
-=======
     position: sticky;
     top: 0;
->>>>>>> 305e1c4bf10a19f934ba1a96b8910b68c8cf34eb
     flex: 1;
     padding: 22px;
     justify-content: center;
@@ -36,15 +28,12 @@ header {
     background-color: white;
 }
 
-<<<<<<< HEAD
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
 }
 
-=======
->>>>>>> 305e1c4bf10a19f934ba1a96b8910b68c8cf34eb
 h1 {
     text-align: center;
     margin: 0;
@@ -65,10 +54,6 @@ img {
     display: flex;
     align-items: center;
     flex: 1;
-<<<<<<< HEAD
-=======
-    padding: 20px 50px;
->>>>>>> 305e1c4bf10a19f934ba1a96b8910b68c8cf34eb
     margin: 0;
     border-bottom: solid black;
     background-color: rgba(98, 188, 240, 0.39);
@@ -79,7 +64,6 @@ p {
     text-align: justify;
 }
 
-<<<<<<< HEAD
 @media only screen and (max-width: 1440px) {
     .intro {
         padding: 30px 400px;
@@ -92,8 +76,6 @@ p {
     }
 }
 
-=======
->>>>>>> 305e1c4bf10a19f934ba1a96b8910b68c8cf34eb
 @media only screen and (max-width: 425px) {
     h1 {
         font-size: 40px;
@@ -104,12 +86,3 @@ p {
     }
 
 }
-<<<<<<< HEAD
-=======
-
-@media only screen and (min-width: 769px) {
-    .intro {
-        padding: 30px 400px;
-    }
-}
->>>>>>> 305e1c4bf10a19f934ba1a96b8910b68c8cf34eb
