@@ -16,7 +16,6 @@ function showHideMenu () {
         menu.classList.add('hidden');
     }, 2000);
 };
-<<<<<<< HEAD
 
     //Function for making header sticky
 function stickyHeader () {
@@ -28,8 +27,6 @@ function stickyHeader () {
         header.classList.remove('sticky');
     }
 }
-=======
->>>>>>> 305e1c4bf10a19f934ba1a96b8910b68c8cf34eb
 
 function init () {
     collapsibles = document.getElementsByTagName('button');
@@ -132,11 +129,7 @@ function mediaQueries () {
     if(window.innerWidth <= 425) {
         window.removeEventListener('scroll', showHideMenu);
         window.listenerAdded === false;
-<<<<<<< HEAD
     } else {
-=======
-    } else if(window.innerWidth > 425) {
->>>>>>> 305e1c4bf10a19f934ba1a96b8910b68c8cf34eb
         window.addEventListener('scroll', showHideMenu);
         window.listenerAdded === true;
     }

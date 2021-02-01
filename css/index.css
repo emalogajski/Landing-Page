@@ -18,8 +18,6 @@ body {
 
 header {
     display: flex;
-    position: sticky;
-    top: 0;
     flex: 1;
     padding: 22px;
     justify-content: center;
