@@ -3,6 +3,8 @@ let menu;
 let sections;
 let menuLink;
 let timer = null;
+let header;
+let sticky;
 
 function showHideMenu () {
     if(timer !== null) {
@@ -14,6 +16,17 @@ function showHideMenu () {
         menu.classList.add('hidden');
     }, 2000);
 };
+
+    //Function for making header sticky
+function stickyHeader () {
+    header = document.getElementById('header');
+    sticky = header.offsetTop;
+    if(window.pageYOffset > sticky) {
+        header.classList.add('sticky');
+    } else {
+        header.classList.remove('sticky');
+    }
+}
 
 function init () {
     collapsibles = document.getElementsByTagName('button');
@@ -35,9 +48,12 @@ function init () {
     //Function for showing and removing menu in reaction to user scrolling
     window.addEventListener('scroll', showHideMenu);
 
+    //Function for making header sticky
+    window.addEventListener('scroll', stickyHeader);
 }
 
 window.onload = init;
+window.listenerAdded === true;
 
 
 //Function for showing the menu on hovering over hamburger menu as well
@@ -107,7 +123,7 @@ function mediaQueries () {
     if(window.innerWidth <= 425) {
         window.removeEventListener('scroll', showHideMenu);
         window.listenerAdded === false;
-    } else if(window.innerWidth > 425) {
+    } else {
         window.addEventListener('scroll', showHideMenu);
         window.listenerAdded === true;
     }
